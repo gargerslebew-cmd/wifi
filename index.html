@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WifiGian | Solusi Internet Tercepat & Terpercaya</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --bg: #050714;
+    --bg-glass: rgba(10, 12, 30, 0.65);
+    --card: rgba(16, 18, 40, 0.75);
+    --border: rgba(255, 255, 255, 0.06);
+    --text: #f0f4ff;
+    --text2: #9ca3af;
+    --primary: #3b82f6;
+    --primary2: #8b5cf6;
+    --primary3: #06b6d4;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --glow: rgba(59, 130, 246, 0.4);
+  }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.25) 0px, transparent 50%),
+      radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.18) 0px, transparent 50%),
+      radial-gradient(at 52% 99%, hsla(355, 98%, 61%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.18) 0px, transparent 50%),
+      radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.12) 0px, transparent 50%),
+      radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.18) 0px, transparent 50%),
+      radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.15) 0px, transparent 50%);
+    animation: meshMove 25s ease-in-out infinite alternate;
+    z-index: -2;
+  }
+
+  @keyframes meshMove {
+    0%, 100% { transform: scale(1) rotate(0deg); filter: hue-rotate(0deg); }
+    50% { transform: scale(1.15) rotate(3deg); filter: hue-rotate(20deg); }
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 24px 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  header.scrolled {
+    background: var(--bg-glass);
+    backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .logo:hover { transform: scale(1.05); }
+
+  .logo i {
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: iconPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .logo span {
+    background: linear-gradient(135deg, var(--primary), var(--primary2), var(--primary3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+  }
+
+  .nav-links button {
+    background: none;
+    border: none;
+    color: var(--text2);
+    padding: 11px 22px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+  }
+
+  .nav-links button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .nav-links button:hover, .nav-links button.active {
+    color: var(--text);
+  }
+
+  .nav-links button:hover::before, .nav-links button.active::before {
+    opacity: 0.15;
+  }
+
+  .nav-links button span { position: relative; z-index: 1; }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  section {
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    display: none;
+  }
+
+  section.active { 
+    display: block;
+    animation: sectionEnter 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes sectionEnter {
+    from { opacity: 0; transform: translateY(40px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  #home {
+    display: none;
+    align-items: center;
+  }
+
+  #home.active { display: flex; }
+
+  .hero {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text2);
+    margin-bottom: 28px;
+    backdrop-filter: blur(20px);
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero-badge i { color: var(--primary); }
+
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(3rem, 9vw, 7rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    letter-spacing: -2px;
+  }
+
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary2) 50%, var(--primary3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  .hero p {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--text2);
+    max-width: 750px;
+    margin: 0 auto 44px;
+    line-height: 1.85;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 18px 40px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    color: white;
+    box-shadow: 0 0 50px var(--glow);
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 70px var(--glow);
+  }
+
+  .btn-primary:hover::before { left: 100%; }
+
+  .btn-secondary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    backdrop-filter: blur(20px);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--primary);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 80px;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25);
+  }
+
+  .stat-card h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .stat-card p {
+    color: var(--text2);
+    font-weight: 600;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 44px;
+    backdrop-filter: blur(24px) saturate(180%);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--primary2), transparent);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: 0 30px 80px rgba(59, 130, 246, 0.25);
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 18px;
+    letter-spacing: -1px;
+  }
+
+  .section-title .gradient {
+    background: linear-gradient(135deg, var(--text), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-desc {
+    color: var(--text2);
+    font-size: 1.15rem;
+    margin-bottom: 56px;
+    line-height: 1.9;
+    max-width: 800px;
+  }
+
+  .grid { display: grid; gap: 28px; }
+  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .grid-4 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 36px;
+    backdrop-filter: blur(24px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 30px 80px rgba(59, 130, 246, 0.3);
+  }
+
+  .feature-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(139, 92, 246, 0.25));
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    margin-bottom: 24px;
+    transition: all 0.5s;
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
+  }
+
+  .feature-card h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .feature-card p {
+    color: var(--text2);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .pricing-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 44px;
+    backdrop-filter: blur(24px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .pricing-card.popular {
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 60px rgba(59, 130, 246, 0.3);
+    transform: scale(1.05);
+  }
+
+  .pricing-card.popular::before {
+    content: 'PALING POPULER';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    color: white;
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 35px 90px rgba(59, 130, 246, 0.35);
+  }
+
+  .pricing-card.popular:hover {
+    transform: translateY(-12px) scale(1.08);
+  }
+
+  .pricing-header h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .pricing-header p {
+    color: var(--text2);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .pricing-price {
+    font-family: 'Sora', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .pricing-price span {
+    font-size: 1.2rem;
+    color: var(--text2);
+    font-weight: 500;
+  }
+
+  .pricing-features {
+    list-style: none;
+    margin: 32px 0;
+  }
+
+  .pricing-features li {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text2);
+  }
+
+  .pricing-features li i {
+    color: var(--success);
+    font-size: 18px;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary), var(--primary2), var(--primary3));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 40px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -49px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    box-shadow: 0 0 20px var(--glow);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px var(--glow); }
+    50% { box-shadow: 0 0 40px var(--glow); }
+  }
+
+  .timeline-item h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .timeline-item p {
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .faq-question {
+    padding: 24px 32px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+  }
+
+  .faq-question:hover {
+    color: var(--primary);
+  }
+
+  .faq-question i {
+    transition: transform 0.3s;
+  }
+
+  .faq-item.active .faq-question i {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-answer p {
+    padding: 0 32px 24px;
+    color: var(--text2);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: var(--bg-glass);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 20px;
+      gap: 0;
+      transform: translateY(-120%);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .nav-links.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-links button {
+      width: 100%;
+      text-align: center;
+    }
+
+    .menu-toggle { display: block; }
+
+    .hero h1 { font-size: 2.8rem; letter-spacing: -1px; }
+    .hero-btns { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .card { padding: 28px; }
+    section { padding: 120px 0 60px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .pricing-card.popular { transform: scale(1); }
+    .pricing-card.popular:hover { transform: translateY(-12px) scale(1.03); }
+  }
+
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary), var(--primary2));
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--primary2), var(--primary3));
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <nav>
+      <div class="logo" onclick="showSection('home')">
+        <i class="fas fa-wifi"></i>
+        <span>WifiGian</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><button class="active" onclick="showSection('home')"><span>Home</span></button></li>
+        <li><button onclick="showSection('about')"><span>Tentang Kami</span></button></li>
+        <li><button onclick="showSection('paket')"><span>Paket Internet</span></button></li>
+        <li><button onclick="showSection('cara-pasang')"><span>Cara Pasang</span></button></li>
+        <li><button onclick="showSection('faq')"><span>FAQ</span></button></li>
+        <li><button onclick="showSection('kontak')"><span>Kontak</span></button></li>
+      </ul>
+      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="active">
+  <div class="container">
+    <div class="hero">
+      <div class="hero-badge">
+        <i class="fas fa-bolt"></i>
+        Internet Super Cepat & Stabil
+      </div>
+      <h1>
+        Solusi Internet<br>
+        <span class="gradient">Tercepat di Indonesia</span>
+      </h1>
+      <p>WifiGian hadir untuk memenuhi kebutuhan internet Anda. Paket unlimited, harga terjangkau, pemasangan cepat, support 24/7. Sudah dipercaya 2000+ pelanggan!</p>
+      <div class="hero-btns">
+        <button class="btn btn-primary" onclick="showSection('paket')">
+          <i class="fas fa-rocket"></i>
+          Lihat Paket
+        </button>
+        <button class="btn btn-secondary" onclick="showSection('cara-pasang')">
+          <i class="fas fa-info-circle"></i>
+          Cara Pasang
+        </button>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h3>2320+</h3>
+          <p>Pelanggan Aktif</p>
+        </div>
+        <div class="stat-card">
+          <h3>99.9%</h3>
+          <p>Uptime Server</p>
+        </div>
+        <div class="stat-card">
+          <h3>24/7</h3>
+          <p>Customer Support</p>
+        </div>
+        <div class="stat-card">
+          <h3>1000 Mbps</h3>
+          <p>Speed Maksimal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">Tentang <span class="gradient">WifiGian</span></h2>
+    <p class="section-desc">Provider internet lokal terpercaya yang berkomitmen memberikan koneksi terbaik untuk rumah dan bisnis Anda.</p>
+    
+    <div class="card" style="margin-bottom: 48px;">
+      <p style="font-size: 1.15rem; line-height: 2; color: var(--text2);">
+        <strong style="color: var(--text); font-size: 1.3rem;">WifiGian</strong> adalah perusahaan penyedia layanan internet yang berdiri sejak 2023. Kami berfokus memberikan koneksi internet berkualitas tinggi dengan teknologi <strong style="color: var(--primary);">Fiber Optic</strong> terbaru.
+        <br><br>
+        Berawal dari keinginan memberikan internet cepat dan terjangkau untuk masyarakat, kini kami telah melayani <strong style="color: var(--primary);">2000+ pelanggan</strong> di 50+ kecamatan. Tim teknisi kami tersertifikasi dan berpengalaman, siap memberikan layanan instalasi dan maintenance terbaik.
+        <br><br>
+        <strong style="color: var(--text);">Visi:</strong> Menjadi provider internet #1 yang paling dipercaya di Indonesia.<br>
+        <strong style="color: var(--text);">Misi:</strong> Menyediakan internet cepat, stabil, dan terjangkau untuk semua kalangan.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Super Cepat</h3>
+        <p>Speed hingga 1 Gbps dengan teknologi Fiber Optic. Download film 4K cuma hitungan detik!</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>100% Stabil</h3>
+        <p>Uptime 99.9% dengan backup server. Anti lemot, anti putus-putus, gaming lancar jaya.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Harga Terjangkau</h3>
+        <p>Mulai 150rb/bulan unlimited. Tanpa FUP, tanpa biaya tersembunyi. Worth it banget!</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛠️</div>
+        <h3>Instalasi Cepat</h3>
+        <p>Proses pemasangan 1x24 jam. Tim teknisi datang ke lokasi, pasang langsung bisa dipake.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📞</div>
+        <h3>Support 24/7</h3>
+        <p>CS standby 24 jam via WhatsApp. Ada masalah? Langsung kami tangani secepat kilat.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎁</div>
+        <h3>Bonus Melimpah</h3>
+        <p>Gratis modem, gratis instalasi, bonus voucher bulanan. Banyak promo menarik!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="paket">
+  <div class="container">
+    <h2 class="section-title">Paket <span class="gradient">Internet</span></h2>
+    <p class="section-desc">Pilih paket yang sesuai kebutuhan Anda. Semua paket unlimited tanpa FUP!</p>
+    
+    <div class="grid grid-3">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Basic</h3>
+          <p>Cocok untuk browsing & sosmed</p>
+        </div>
+        <div class="pricing-price">150K<span>/bulan</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Speed up to 50 Mbps</li>
+          <li><i class="fas fa-check-circle"></i> Unlimited Kuota</li>
+          <li><i class="fas fa-check-circle"></i> Gratis Modem</li>
+          <li><i class="fas fa-check-circle"></i> Gratis Instalasi</li>
+          <li><i class="fas fa-check-circle"></i> Support 24/7</li>
+        </ul>
+        <button class="btn btn-secondary" style="width:100%" onclick="window.open('https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pasang%20Paket%20Basic%20WifiGian', '_blank')">
+          <i class="fab fa-whatsapp"></i>
+          Pilih Paket
+        </button>
+      </div>
+
+      <div class="pricing-card popular">
+        <div class="pricing-header">
+          <h3>Pro</h3>
+          <p>Untuk streaming & gaming</p>
+        </div>
+        <div class="pricing-price">250K<span>/bulan</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Speed up to 100 Mbps</li>
+          <li><i class="fas fa-check-circle"></i> Unlimited Kuota</li>
+          <li><i class="fas fa-check-circle"></i> Gratis Modem Premium</li>
+          <li><i class="fas fa-check-circle"></i> Gratis Instalasi</li>
+          <li><i class="fas fa-check-circle"></i> Priority Support 24/7</li>
+          <li><i class="fas fa-check-circle"></i> Bonus Voucher 50K</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%" onclick="window.open('https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pasang%20Paket%20Pro%20WifiGian', '_blank')">
+          <i class="fab fa-whatsapp"></i>
+          Pilih Paket
+        </button>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Ultra</h3>
+          <p>Untuk bisnis & keluarga besar</p>
+        </div>
+        <div class="pricing-price">450K<span>/bulan</span></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Speed up to 200 Mbps</li>
+          <li><i class="fas fa-check-circle"></i> Unlimited Kuota</li>
+          <li><i class="fas fa-check-circle"></i> Gratis Modem Enterprise</li>
+          <li><i class="fas fa-check-circle"></i> Gratis Instalasi</li>
+          <li><i class="fas fa-check-circle"></i> VIP Support 24/7</li>
+          <li><i class="fas fa-check-circle"></i> Bonus Voucher 100K</li>
+          <li><i class="fas fa-check-circle"></i> Static IP Gratis</li>
+        </ul>
+        <button class="btn btn-secondary" style="width:100%" onclick="window.open('https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pasang%20Paket%20Ultra%20WifiGian', '_blank')">
+          <i class="fab fa-whatsapp"></i>
+          Pilih Paket
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cara-pasang">
+  <div class="container">
+    <h2 class="section-title">Cara <span class="gradient">Pasang</span></h2>
+    <p class="section-desc">Proses pemasangan WifiGian super gampang dan cepat. Cuma 4 langkah aja!</p>
+    
+    <div class="card" style="margin-bottom: 48px;">
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>1. Hubungi Kami</h3>
+          <p>Chat WhatsApp atau telepon CS kami. Kasih tau alamat lengkap dan paket yang kamu mau. Tim kami bakal cek coverage area dulu.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2. Survey Lokasi</h3>
+          <p>Tim teknisi datang ke lokasi kamu untuk survey gratis. Kami cek jalur kabel, estimasi waktu, dan pastikan sinyal optimal.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>3. Instalasi Fiber Optic</h3>
+                    <p>Proses pemasangan 1x24 jam setelah survey. Teknisi pasang kabel fiber, setup modem, test speed. Dijamin rapi dan profesional.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>4. Internet Langsung ON!</h3>
+          <p>Setelah instalasi selesai, internet langsung aktif. Bayar di tempat atau transfer. Nikmati internet super cepat WifiGian!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="feature-icon">📋</div>
+        <h3>Syarat Pemasangan</h3>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> KTP asli & fotokopi</li>
+          <li><i class="fas fa-check-circle"></i> Alamat lengkap + patokan</li>
+          <li><i class="fas fa-check-circle"></i> No. HP aktif WhatsApp</li>
+          <li><i class="fas fa-check-circle"></i> Area tercover jaringan kami</li>
+          <li><i class="fas fa-check-circle"></i> Biaya pasang GRATIS!</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="feature-icon">⏱️</div>
+        <h3>Estimasi Waktu</h3>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Chat CS: Langsung dibalas</li>
+          <li><i class="fas fa-check-circle"></i> Survey: Hari yang sama</li>
+          <li><i class="fas fa-check-circle"></i> Instalasi: 1x24 jam</li>
+          <li><i class="fas fa-check-circle"></i> Aktivasi: Langsung ON</li>
+          <li><i class="fas fa-check-circle"></i> Total: Maksimal 2 hari!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">Pertanyaan <span class="gradient">Umum</span></h2>
+    <p class="section-desc">Jawaban untuk pertanyaan yang sering ditanyakan pelanggan kami.</p>
+    
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Berapa biaya pemasangan WifiGian?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>GRATIS! Biaya instalasi, modem, dan survey semuanya GRATIS tanpa syarat. Kamu cuma bayar paket bulanan aja mulai 150rb.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Apakah ada FUP / batasan kuota?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Tidak ada! Semua paket WifiGian UNLIMITED tanpa FUP. Download, streaming, gaming sepuasnya tanpa takut lemot.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Berapa lama proses pemasangan?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Super cepat! Setelah kamu chat CS, tim survey datang hari yang sama. Instalasi 1x24 jam. Total maksimal 2 hari internet udah ON.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Bagaimana jika internet bermasalah?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Tim support kami standby 24/7 via WhatsApp. Laporan gangguan langsung ditangani. Jika perlu, teknisi datang ke lokasi GRATIS.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Apakah bisa pindah alamat?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Bisa! Biaya relokasi cuma 100rb. Selama alamat baru masih tercover jaringan kami, tinggal chat CS aja.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Metode pembayaran apa saja?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Bisa transfer bank (BCA, Mandiri, BRI, BNI), e-wallet (Dana, OVO, Gopay, ShopeePay), atau bayar langsung ke teknisi saat pasang.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Area mana saja yang sudah tercover?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Saat ini kami sudah cover 50+ kecamatan di Jabodetabek. Chat CS untuk cek apakah alamat kamu sudah tercover. Coverage terus berkembang setiap bulan!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Apakah ada kontrak minimal?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Tidak ada kontrak! Kamu bebas berhenti kapan aja tanpa denda. Tapi yakin deh, sekali pake WifiGian pasti betah 😊</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="container">
+    <h2 class="section-title">Hubungi <span class="gradient">Kami</span></h2>
+    <p class="section-desc">Ada pertanyaan atau mau pasang sekarang? Tim kami siap bantu 24/7!</p>
+    
+    <div class="grid grid-3">
+      <div class="feature-card" onclick="window.open('https://wa.me/6282310523572', '_blank')" style="cursor:pointer">
+        <div class="feature-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--primary);margin-bottom:8px;">0823-1051-3572</p>
+        <p>Fast response 24/7. Chat sekarang!</p>
+      </div>
+
+      <div class="feature-card" onclick="window.open('tel:+6281234567890', '_blank')" style="cursor:pointer">
+        <div class="feature-icon">📞</div>
+        <h3>Telepon</h3>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--primary);margin-bottom:8px;">0823-1051-3572</p>
+        <p>Call center 24 jam nonstop</p>
+      </div>
+
+      <div class="feature-card" onclick="window.open('mailto:cs@wifigian.com', '_blank')" style="cursor:pointer">
+        <div class="feature-icon">📧</div>
+        <h3>Email</h3>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--primary);margin-bottom:8px;">cs@wifigian.com</p>
+        <p>Untuk kerjasama & pertanyaan</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <h3>Alamat Kantor</h3>
+        <p style="font-size:1rem;margin-bottom:8px;">Jl. Siliwangi NO 1 Cianjur</p>
+        <p>Buka Senin-Sabtu 08:00-20:00</p>
+      </div>
+
+      <div class="feature-card" onclick="window.open('https://instagram.com/wifigian', '_blank')" style="cursor:pointer">
+        <div class="feature-icon">📸</div>
+        <h3>Instagram</h3>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--primary);margin-bottom:8px;">@wifigian</p>
+        <p>Update promo & info terbaru</p>
+      </div>
+
+      <div class="feature-card" onclick="window.open('https://facebook.com/wifigian', '_blank')" style="cursor:pointer">
+        <div class="feature-icon">👍</div>
+        <h3>Facebook</h3>
+        <p style="font-size:1.1rem;font-weight:600;color:var(--primary);margin-bottom:8px;">WifiGian Official</p>
+        <p>Join komunitas pelanggan kami</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:48px;text-align:center;">
+      <h3 style="font-family:'Sora',sans-serif;font-size:2rem;margin-bottom:16px;">Jam Operasional</h3>
+      <p style="font-size:1.1rem;color:var(--text2);line-height:2;">
+        <strong style="color:var(--text);">Customer Service:</strong> 24 Jam Setiap Hari<br>
+        <strong style="color:var(--text);">Teknisi Lapangan:</strong> 08:00 - 21:00 WIB<br>
+        <strong style="color:var(--text);">Kantor:</strong> Senin - Sabtu, 08:00 - 20:00 WIB
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Navigation - FIX TOTAL
+  function showSection(id) {
+    // Hide all sections
+    document.querySelectorAll('section').forEach(s => {
+      s.classList.remove('active');
+    });
+    
+    // Show target section
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
+    
+    // Update nav active state
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    
+    // Find and activate the clicked button
+    const buttons = document.querySelectorAll('.nav-links button');
+    buttons.forEach(btn => {
+      const btnText = btn.textContent.toLowerCase();
+      if ((id === 'home' && btnText.includes('home')) ||
+          (id === 'about' && btnText.includes('tentang')) ||
+          (id === 'paket' && btnText.includes('paket')) ||
+          (id === 'cara-pasang' && btnText.includes('cara')) ||
+          (id === 'faq' && btnText.includes('faq')) ||
+          (id === 'kontak' && btnText.includes('kontak'))) {
+        btn.classList.add('active');
+      }
+    });
+    
+    // Close mobile menu
+    document.getElementById('navLinks').classList.remove('show');
+    
+    // Scroll to top smooth
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
+  }
+
+  // Close menu on click outside
+  document.addEventListener('click', (e) => {
+    const nav = document.querySelector('nav');
+    const menu = document.getElementById('navLinks');
+    if (!nav.contains(e.target) && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  });
+
+  // FAQ Toggle
+  function toggleFaq(element) {
+    const item = element.parentElement;
+    const wasActive = item.classList.contains('active');
+    
+    // Close all FAQs
+    document.querySelectorAll('.faq-item').forEach(faq => {
+      faq.classList.remove('active');
+    });
+    
+    // Open clicked one if it wasn't active
+    if (!wasActive) {
+      item.classList.add('active');
+    }
+  }
+
+  // Set home as default active
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.nav-links button').classList.add('active');
+  });
+</script>
+
+</body>
+</html>
